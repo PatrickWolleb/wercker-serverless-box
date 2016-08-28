@@ -2,7 +2,6 @@
 box: node:4.3.2-slim
 build:
   steps:
-    - npm-install
     - script:
         name: install serverless
         code: npm i serverless@1.0.0-beta.2 -g --allow-root
