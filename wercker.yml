@@ -1,0 +1,16 @@
+# Ensure it maps to aws lambda nodejs version
+box: node:4.3.2-slim
+build:
+  steps:
+    - npm-install
+    - script:
+        name: install serverless
+        code: npm i serverless@1.0.0-beta.2
+deploy:
+  steps:
+    - internal/docker-push:
+      username: $USERNAME
+      password: $PASSWORD
+      tag: 1.0.0-beta.2
+      repository: shmedia/wercker-serverless-box
+      registry: https://registry.hub.docker.com
